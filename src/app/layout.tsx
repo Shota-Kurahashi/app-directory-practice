@@ -1,5 +1,6 @@
-import "@/styles/tailwind.css";
 import { Inter } from "next/font/google";
+import BasicLayout from "@/components/Layouts/BasicLayout";
+import "@/styles/tailwind.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,8 +24,10 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={inter.className}>
-        {children}
-        {modal}
+        <BasicLayout>
+          {children}
+          {modal}
+        </BasicLayout>
       </body>
     </html>
   );

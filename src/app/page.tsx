@@ -1,12 +1,15 @@
-import Link from "next/link";
 import { Switch } from "@/components/Switch";
+import { useQueryPhotos } from "@/features/photos/api";
+import { Photos } from "@/features/photos/components";
+import { Photo } from "@/features/photos/types";
 
-export default function Home() {
+export default async function Home() {
+  const photos: Photo[] = await useQueryPhotos();
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Link href="/photos/1">modal</Link>
-      現在開発中です
+    <>
+      <Photos photos={photos} />
       <Switch />
-    </main>
+    </>
   );
 }
